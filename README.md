@@ -27,3 +27,17 @@ A robust Node.js/Express backend for managing financial records with Role-Based 
 - **Aggregation**: Used MongoDB Aggregation Pipelines for the summary API to ensure high performance with large datasets.
 - **RBAC**: Implemented via a reusable middleware `authorize()` to keep routes clean.
 - **Validation**: All incoming data is validated using Zod schemas before reaching controllers.
+
+## API Endpoints
+
+**Authentication**
+* `POST /api/auth/login` - Login to receive JWT (Body: `email`, `password`)
+
+**Financial Records** (Requires Bearer Token)
+* `GET /api/records` - Get user's records (Supports query params: `?type=income&category=Food`)
+* `POST /api/records` - Create a new record (Admin only)
+* `PUT /api/records/:id` - Update a record (Admin only)
+* `DELETE /api/records/:id` - Delete a record (Admin only)
+
+**Dashboard & Analytics** (Requires Bearer Token)
+* `GET /api/records/summary` - Get aggregated totals and category breakdown (Admin/Analyst only)
