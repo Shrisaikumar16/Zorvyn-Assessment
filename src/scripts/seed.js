@@ -55,6 +55,8 @@ const seedData = async () => {
 
     console.log('Data Seeded Successfully!');
     console.log('Admin Login: admin@test.com | password123');
+    console.log("Analyst Login: analyst@test.com | password123");
+    console.log("Viewer Login: viewer@test.com | password123");
     process.exit();
   } catch (error) {
     console.error('Seeding failed:', error);
